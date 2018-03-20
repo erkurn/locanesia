@@ -47,13 +47,13 @@ Laravel Package to populate and searching indonesia locations. From Provinces To
     ```
 
 ### Basic Usage
-    variable term can part of full address, like "Buah Batu Bandung".
+variable term can part of full address, like "Buah Batu Bandung".
 
-    ```php
-        use rezzakurniawan\Locanesia\Locanesia;
+```php
+    use rezzakurniawan\Locanesia\Locanesia;
 
-        Locanesia::search($term);
-    ```
+    Locanesia::search($term);
+```
 
 ### License
 Laravel Locanesia is Licensed under GPLV3. Enjoy!
