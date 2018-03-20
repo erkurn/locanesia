@@ -1,0 +1,29 @@
+{
+    "name": "rezzakurniawan/locanesia",
+    "description": "Indonesia Province, City, Sub District, Villages. Data From nomor.net",
+    "type": "library",
+    "license": "GNU GPLv3",
+    "authors": [
+        {
+            "name": "Rezza Kurniawan",
+            "email": "rezza.kurniawan@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "rezzakurniawan\\Locanesia\\": "src"
+        }
+    },
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "rezzakurniawan\\Locanesia\\LocanesiaServiceProvider"
+            ],
+            "aliases": {
+                "Locanesia": "rezzakurniawan\\Locanesia\\LocanesiaFacade"
+            }
+        }
+    }
+}
