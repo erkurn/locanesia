@@ -1,7 +1,7 @@
 # Locanesia
 
 - [About](#about)
-- [Demo] (#demo)
+- [Demo](#demo)
 - [Requirements](#requirements)
 - [Installation Instructions](#installation-instructions)
 - [Basic Usage](#basic-usage)
