@@ -16,7 +16,10 @@ Trait ResponseFormatter
     {
         try {
             if($type == 'json' && $paginate == false) {
-                return response()->json(array_merge($data->toArray(), [
+                if(!is_array($data)) {
+                    $data = $data->toArray();
+                }
+                return response()->json(array_merge($data, [
                     'error' =>  false
                 ]));
             }

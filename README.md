@@ -53,10 +53,53 @@ Laravel Package to populate and searching indonesia locations. From Provinces To
 ### Basic Usage
 variable term can part of full address, like "Buah Batu Bandung".
 
-```php
+always call locanesia, use it : 
+``` php
     use rezzakurniawan\Locanesia\Locanesia;
+```
 
-    Locanesia::search($term);
+1. For Full Text Search
+```php
+    /**
+     * Full Text Search Location
+     *
+     * @param String $term Village, Postcode, Province, City Or combine
+     * @param String $response json|array
+     * @return void
+     */
+    Locanesia::search($term, $response);
+```
+2. Get All Province
+```php
+    /**
+     * Get All Provinces
+     *
+     * @param String $response json|array
+     * @return void
+     */
+    Locanesia::getProvinces($response);
+```
+3. Get All Cities By Provinces
+```php
+    /**
+     * Get All Provinces
+     *
+     * @param String $provinces Province Name
+     * @param String $response json|array
+     * @return void
+     */
+    Locanesia::getCities($provinces, $response);
+```
+4. Get Detail Location By Postcode
+```php
+    /**
+     * Get Detail Location By Postcode
+     *
+     * @param String $term postcode
+     * @param String $response json|array
+     * @return void
+     */
+    Locanesia::getLocationByPostCode($term, $type);
 ```
 
 ### License

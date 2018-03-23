@@ -1,11 +1,5 @@
 <?php
 return [
-    'whitelist' =>  [
-        'provinces'     =>  ['*'],
-        'cities'        =>  ['*'],
-        'subdistricts'  =>  ['*'],
-        'villages'      =>  ['*'],
-        'postcode'      =>  ['*']
-    ],
+    'whitelist_filter' =>  ['Jawa Barat'],
     'db_table'  =>  'locations'
 ];

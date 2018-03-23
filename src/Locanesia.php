@@ -2,8 +2,10 @@
 
 namespace rezzakurniawan\Locanesia;
 
+use Illuminate\Support\Facades\DB;
 use rezzakurniawan\Locanesia\Models\Location;
 use rezzakurniawan\Locanesia\Traits\ResponseFormatter;
+use rezzakurniawan\Locanesia\Models\LocationCity;
 
 
 Class Locanesia {
@@ -16,33 +18,52 @@ Class Locanesia {
      * @param String $term
      * @return void
      */
-    public static function search($term)
+    public static function search($term, $type = 'json')
     {
-        return ResponseFormatter::success(Location::search($term)->paginate(10));
+        return ResponseFormatter::success(Location::search($term)->paginate(10), $type);
     }
 
-    public static function getProvinces()
+    /**
+     * Get Provinces
+     *
+     * @return void
+     */
+    public static function getProvinces($type = 'json')
     {
-        // TODO : Get All Provinces
+        $data = DB::table(config('locanesia.db_table') . '_province')
+                ->select('*')
+                ->get();
+
+        return ResponseFormatter::success($data->map(function($item) {
+            return $item->provinsi;
+        }), $type);
     }
 
-    public function getCities($province)
+    /**
+     * Get Cities
+     *
+     * @param String $province
+     * @return void
+     */
+    public static function getCities($province, $json = 'json')
     {
-        // TODO : Get All City By Province
+        $data = DB::table(config('locanesia.db_table') . '_cities')
+                ->where('provinsi', $province)
+                ->get()->toArray();
+        
+        return ResponseFormatter::success([
+            'data'  =>  $data
+        ], $type);
     }
 
-    public function getSubDistrict($city)
+    /**
+     * Get Location By PostCode
+     *
+     * @param String $postcode
+     * @return void
+     */
+    public static function getLocationByPostCode($postcode, $type = 'json')
     {
-        // TODO : Get All Sub District by City
-    }
-    
-    public function getVillages($subDistrict)
-    {
-        // TODO : Get All Villages By Sub District
-    }
-
-    public function getLocationByPostCode($postcode)
-    {
-        // TODO : Get Locations By Post Code
+        return ResponseFormatter::success(Location::where('kodepos', $postcode)->paginate(10), $type);
     }
 }

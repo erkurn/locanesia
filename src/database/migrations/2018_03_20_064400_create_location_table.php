@@ -28,6 +28,21 @@ class CreateLocationTable extends Migration
         });
 
         DB::statement("ALTER TABLE $table ADD FULLTEXT fulltext_index (kodepos, kelurahan, kecamatan, jenis, kota, provinsi)");
+        DB::statement("CREATE VIEW ".$table."_province AS
+                        SELECT
+                            provinsi
+                        FROM
+                            $table
+                        GROUP BY
+                            provinsi");
+        DB::statement("CREATE VIEW ".$table."_cities AS
+                        SELECT
+                            jenis, kota, provinsi
+                        FROM
+                            $table
+                        GROUP BY
+                            jenis, kota, provinsi");                            
+        
     }
 
     /**
@@ -37,6 +52,9 @@ class CreateLocationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists(config('locanesia.db_table'));
+        $table = config('locanesia.db_table');
+        Schema::dropIfExists($table);
+        DB::statement("DROP VIEW ".$table."_province");
+        DB::statement("DROP VIEW ".$table."_cities");
     }
 }
