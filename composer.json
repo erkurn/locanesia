@@ -15,7 +15,9 @@
             "rezzakurniawan\\Locanesia\\": "src"
         }
     },
-    "require": {},
+    "require": {
+        "php": "^7.0"
+    },
     "extra": {
         "laravel": {
             "providers": [
