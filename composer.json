@@ -2,7 +2,7 @@
     "name": "rezzakurniawan/locanesia",
     "description": "Indonesia Province, City, Sub District, Villages. Data From nomor.net",
     "type": "library",
-    "license": "GNU GPLv3",
+    "license": "MIT",
     "authors": [
         {
             "name": "Rezza Kurniawan",
