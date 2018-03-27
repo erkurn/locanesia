@@ -16,7 +16,7 @@ class CreateLocationTable extends Migration
     {
         $table = config('locanesia.db_table');
         $engine = config('locanesia.engine');
-        Schema::create($table, function (Blueprint $table) {
+        Schema::create($table, function (Blueprint $table) use ($engine) {
             $table->increments('id');
             $table->char('kodepos', 10);
             $table->string('kelurahan');
