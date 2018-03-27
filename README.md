@@ -103,4 +103,4 @@ always call locanesia, use it :
 ```
 
 ### License
-Laravel Locanesia is Licensed under GPLV3. Enjoy!
+Laravel Locanesia is Licensed under MIT. Enjoy!
