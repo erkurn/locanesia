@@ -15,6 +15,7 @@ class CreateLocationTable extends Migration
     public function up()
     {
         $table = config('locanesia.db_table');
+        $engine = config('locanesia.engine');
         Schema::create($table, function (Blueprint $table) {
             $table->increments('id');
             $table->char('kodepos', 10);
@@ -24,6 +25,7 @@ class CreateLocationTable extends Migration
             $table->string('kota');
             $table->string('provinsi');
             $table->string('hash');
+            $table->engine = $engine;
             $table->timestamps();
         });
 
